@@ -48,6 +48,7 @@ PkgInit.prototype.build = function (name, cb) {
     var stdout = opts.stdout || process.stdout;
     var stdin = opts.stdin || process.stdin;
     var file = self.filename(name);
+    stdin.on('data', function () {});
     
     fs.readFile(file, function (err, src) {
         if (err) return cb(err);
